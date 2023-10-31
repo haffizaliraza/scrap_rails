@@ -1,0 +1,27 @@
+<%= form_with(model: scrap) do |form| %>
+  <% if scrap.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(scrap.errors.count, "error") %> prohibited this scrap from being saved:</h2>
+
+      <ul>
+        <% scrap.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :keywords, style: "display: block" %>
+    <%= form.text_area :keywords %>
+  </div>
+
+  <div>
+    <%= form.label :urls, style: "display: block" %>
+    <%= form.text_area :urls %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

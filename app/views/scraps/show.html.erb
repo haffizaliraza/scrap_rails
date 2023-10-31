@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @scrap %>
+
+<div>
+  <%= link_to "Edit this scrap", edit_scrap_path(@scrap) %> |
+  <%= link_to "Back to scraps", scraps_path %>
+
+  <%= button_to "Destroy this scrap", @scrap, method: :delete %>
+</div>
