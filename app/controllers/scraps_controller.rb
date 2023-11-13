@@ -75,8 +75,8 @@ class ScrapsController < ApplicationController
         found_categories = {}
     
         for keyword in keywords
-          query = "#{url} #{keyword}"
-          search_url = "https://www.bing.com/search?q=#{URI.encode_www_form_component(query)}"
+          query = "site: #{url} #{keyword}"
+          search_url = "https://www.google.com/search?q=#{URI.encode_www_form_component(query)}"
           
           begin
             page = Nokogiri::HTML(URI.open(search_url))
