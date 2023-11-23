@@ -23,7 +23,7 @@ class DocumentsController < ApplicationController
     # POST /documents or /documents.json
     def create
       @document = Document.new(document_params)
-    #   output = process_xlsx_file(@document, @document.keywords.split(','), "https://web-production-11c1.up.railway.app/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b1c2939d6b08e04cc80010c70fe2af59379e0dbd/urls.xlsx")
+      output = process_xlsx_file(@document, @document.keywords.split(','), "https://web-production-11c1.up.railway.app/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--77d6523f103148bf8ea60540f1572427afa91592/urls.xlsx")
       respond_to do |format|
         if @document.save
           format.html { redirect_to document_url(@document), notice: "Document was successfully created." }
