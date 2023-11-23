@@ -53,7 +53,6 @@
   }
 </style>
 <div class="form-container">
-<div class="form-header">
 <%= form_with(model: document) do |form| %>
   <% if document.errors.any? %>
     <div style="color: red">
@@ -67,11 +66,9 @@
     </div>
   <% end %>
 
-  </div>
     <div>
     <%= form.label :xlsx_file, 'Upload XLSX file' %>
-    <%= form.file_field :avatars, multiple: true %>
-
+    <%= form.file_field :avatar, accept: '.xlsx' %>
   </div>
 
   <div>
