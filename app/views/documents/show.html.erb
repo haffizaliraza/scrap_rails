@@ -1,0 +1,39 @@
+<p style="color: green"><%= notice %></p>
+
+
+<p>
+<strong>Keywords:</strong>
+<%= @document.keywords %>
+</p>
+
+<h1>Results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>keyword</th>
+      <th>URLs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @document.results.each do |result| %>
+      <tr>
+        <td><%= result.keyword %></td>
+        <td>
+          <ul>
+            <% result.urls.each do |key, value| %>
+              <li><strong><%= key %>:</strong> <%= value %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to "Edit this document", edit_document_path(@document) %> |
+  <%= link_to "Back to documents", documents_path %>
+
+  <%= button_to "Destroy this document", @document, method: :delete %>
+</div>

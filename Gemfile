@@ -32,6 +32,8 @@ gem "jbuilder"
 gem "selenium-webdriver"
 gem "nokogiri"
 gem "open-uri"
+gem 'roo'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

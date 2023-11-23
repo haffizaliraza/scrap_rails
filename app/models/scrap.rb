@@ -1,2 +1,0 @@
-class Scrap < ApplicationRecord
-end

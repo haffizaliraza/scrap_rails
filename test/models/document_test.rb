@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ScrapTest < ActiveSupport::TestCase
+class DocumentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
