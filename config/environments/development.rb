@@ -47,7 +47,7 @@ Rails.application.configure do
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
 
-  config.hosts << "web-production-8869.up.railway.app"
+  config.hosts << "web-production-11c1.up.railway.app"
   
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
