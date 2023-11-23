@@ -23,9 +23,9 @@ class DocumentsController < ApplicationController
     # POST /documents or /documents.json
     def create
       @document = Document.new(document_params)
-      output = process_xlsx_file(@document, @document.keywords.split(','), "https://web-production-11c1.up.railway.app/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--77d6523f103148bf8ea60540f1572427afa91592/urls.xlsx")
       respond_to do |format|
         if @document.save
+          output = process_xlsx_file(@document, @document.keywords.split(','), @document.avatar.current_path)
           format.html { redirect_to document_url(@document), notice: "Document was successfully created." }
           format.json { render :show, status: :created, location: @document }
         else
@@ -102,7 +102,7 @@ class DocumentsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def document_params
-        params.require(:document).permit(:xlsx_file, :keywords)
+        params.require(:document).permit(:keywords, :avatar)
       end
   end
   

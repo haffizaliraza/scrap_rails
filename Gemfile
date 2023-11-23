@@ -33,6 +33,7 @@ gem "selenium-webdriver"
 gem "nokogiri"
 gem "open-uri"
 gem 'roo'
+gem 'carrierwave', '~> 3.0'
 
 
 # Use Redis adapter to run Action Cable in production
