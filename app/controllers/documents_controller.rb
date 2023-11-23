@@ -9,6 +9,7 @@ class DocumentsController < ApplicationController
   
     # GET /documents/1 or /documents/1.json
     def show
+        @results = @document.results.page params[:page]
     end
   
     # GET /documents/new
@@ -77,7 +78,7 @@ class DocumentsController < ApplicationController
             url_query = "site:#{base_url} #{category}"
             query_result = google_search(url_query, api_key, cse_id)
             found_links = query_result['items'].to_a.map { |item| item['link'] }
-            Result.create(document: document, urls: found_links, keyword: category)
+            Result.create(document: document, urls: found_links, keyword: category, base_url: base_url)
           end
         end
       end

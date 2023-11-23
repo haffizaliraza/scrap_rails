@@ -1,24 +1,138 @@
+<style>
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-left-width: 0;
+}
+
+.pagination-div{
+  margin-left: 20%;
+  margin-bottom: 100px;
+
+}
+.pagination {
+    border-left: 1px solid #ddd;
+    .first{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .prev {
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .page{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .next{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .last{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+}
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  a.button {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+  }
+
+  div.actions {
+    margin-top: 20px;
+  }
+  .keywords-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff; /* Light Blue */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .keywords-label {
+    font-size: 18px;
+    color: #333;
+  }
+  .keywords-value {
+    font-size: 24px;
+    color: #007bff; /* Blue */
+  }
+</style>
+
 <p style="color: green"><%= notice %></p>
 
+<div class="keywords-section">
+  <p class="keywords-label">
+    <strong>Keywords:</strong>
+  </p>
+  <p class="keywords-value">
+    <%= @document.keywords %>
+  </p>
+</div>
 
-<p>
-<strong>Keywords:</strong>
-<%= @document.keywords %>
-</p>
+<div class="actions">
+  <%= link_to "Back to documents", documents_path, class: "button" %>
+</div>
 
 <h1>Results</h1>
 
 <table>
   <thead>
     <tr>
-      <th>keyword</th>
+      <th>Keyword</th>
+      <th>Base URL</th>
       <th>URLs</th>
     </tr>
   </thead>
   <tbody>
-    <% @document.results.each do |result| %>
+    <% @results.each do |result| %>
       <tr>
         <td><%= result.keyword %></td>
+        <td><%= result.base_url %></td>
         <td>
           <ul>
             <% result.urls.each do |key, value| %>
@@ -30,10 +144,9 @@
     <% end %>
   </tbody>
 </table>
-
-<div>
-  <%= link_to "Edit this document", edit_document_path(@document) %> |
-  <%= link_to "Back to documents", documents_path %>
-
-  <%= button_to "Destroy this document", @document, method: :delete %>
+<br>
+<div class="pagination-div">
+  <%= paginate @results %>
 </div>
+<br><br>
+

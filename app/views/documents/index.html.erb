@@ -1,14 +1,62 @@
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  a.button {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+  }
+</style>
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Documents</h1>
 
-<div id="documents">
-  <% @documents.each do |document| %>
-    <%= render document %>
-    <p>
-      <%= link_to "Show this document", document %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Keywords</th>
+      <th>File</th>
+      <th>Created At</th>
+      <!-- Add more table headers based on your Document attributes -->
+      <th>Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.id %></td>
+        <td><%= document.keywords %></td>
+        <td><%= document.avatar.url %></td>
+        <td><%= document.created_at %></td>
+        <!-- Add more table cells based on your Document attributes -->
+        <td><%= link_to "Show this document", document, class: "button" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "New document", new_document_path, class: "button" %>
 
-<%= link_to "New document", new_document_path %>

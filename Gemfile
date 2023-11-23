@@ -34,6 +34,7 @@ gem "nokogiri"
 gem "open-uri"
 gem 'roo'
 gem 'carrierwave', '~> 3.0'
+gem 'kaminari'
 
 
 # Use Redis adapter to run Action Cable in production

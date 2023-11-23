@@ -1,9 +1,23 @@
+<style>
+a.button {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+.back{
+  margin-left: 40%
+}
+</style>
+
 <h1>New document</h1>
 
 <%= render "form", document: @document %>
 
 <br>
 
-<div>
-  <%= link_to "Back to documents", documents_path %>
+<div class="back">
+  <%= link_to "Back to documents", documents_path,  class: "button" %>
 </div>

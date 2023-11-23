@@ -1,3 +1,59 @@
+<style>
+  /* Add or modify styles as needed */
+
+  .form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light Gray */
+    border: 1px solid #d6d8db;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+
+  .form-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .error-message {
+    color: #dc3545; /* Red */
+    margin-top: 10px;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+
+  input[type="submit"] {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker Blue */
+  }
+</style>
+<div class="form-container">
+<div class="form-header">
 <%= form_with(model: document) do |form| %>
   <% if document.errors.any? %>
     <div style="color: red">
@@ -11,9 +67,11 @@
     </div>
   <% end %>
 
+  </div>
     <div>
     <%= form.label :xlsx_file, 'Upload XLSX file' %>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatars, multiple: true %>
+
   </div>
 
   <div>
@@ -25,3 +83,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
